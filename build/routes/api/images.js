@@ -4,11 +4,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
-var index_1 = __importDefault(require("./routes/index"));
-var app = (0, express_1.default)();
-var port = 3000;
-app.listen(port, function () {
-    console.log("server running at http://localhost:".concat(port));
+var images = express_1.default.Router();
+images.get('/images', function (req, res) {
+    // console.log(req.filename);
+    // console.log(req.height);
+    // console.log(req.width);
+    res.send('Hello its my images');
 });
-app.use("/api", index_1.default);
-exports.default = app;
+exports.default = images;
