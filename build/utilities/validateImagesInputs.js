@@ -17,7 +17,7 @@ var validateImagesInputs = function (req, res, next) {
         res.status(400).send('error: image not found');
         return;
     }
-    //validate width is exists and number
+    //validate width is exists and number and number more than 0
     var width = req.query.width;
     if (width == undefined) {
         res.status(400).send('error: query parameter "width" is required');
@@ -27,7 +27,11 @@ var validateImagesInputs = function (req, res, next) {
         res.status(400).send('error: query parameter "width" should be a number');
         return;
     }
-    //validate height is exists and number
+    if (width <= 0) {
+        res.status(400).send('error: query parameter "width" should be more than 0 ');
+        return;
+    }
+    //validate height is exists and number more than 0
     var height = req.query.height;
     if (height == undefined) {
         res.status(400).send('error: query parameter "height" is required');
@@ -35,6 +39,10 @@ var validateImagesInputs = function (req, res, next) {
     }
     if (isNaN(height)) {
         res.status(400).send('error: query parameter "height" should be a number');
+        return;
+    }
+    if (height <= 0) {
+        res.status(400).send('error: query parameter "height" should be more than 0 ');
         return;
     }
     next();

@@ -16,7 +16,7 @@ const validateImagesInputs = (req: express.Request, res: express.Response, next:
         return;
     }
 
-    //validate width is exists and number
+    //validate width is exists and number and number more than 0
     const width : number = (req.query.width as unknown) as number;
     if(width == undefined) {
         res.status(400).send('error: query parameter "width" is required');
@@ -31,7 +31,7 @@ const validateImagesInputs = (req: express.Request, res: express.Response, next:
         return;
     }
     
-    //validate height is exists and number
+    //validate height is exists and number more than 0
     const height : number = (req.query.height as unknown) as number;
     if(height == undefined) {
         res.status(400).send('error: query parameter "height" is required');

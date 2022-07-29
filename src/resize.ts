@@ -2,8 +2,15 @@ import sharp from 'sharp';
 import path from 'path';
 
 const resize = async (fileName: string, width: number, height: number) => {
-    const imgPath = path.resolve('./assets/full')+`/${fileName}.jpg`;
-    await sharp(imgPath).resize(width, height).toFile(`assets/thumb/${fileName}_${height}_${width}.jpg`);
+    try {
+        const imgPath : string = path.resolve('./assets/full')+`/${fileName}.jpg`;
+        const reizedImgPath : string = `./assets/thumb/${fileName}_${width}_${height}.jpg`;
+        await sharp(imgPath).resize(width, height).toFile(reizedImgPath);
+
+        return reizedImgPath;
+    } catch (error) {
+        return 'internal server error!';
+    }
 };
 
 export default resize;
