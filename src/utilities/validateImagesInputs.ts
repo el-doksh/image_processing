@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import { existsSync } from 'fs';
 
-const validateImagesInputs = (req: express.Request, res: express.Response, next: Function) : void => {
+const validateImagesInputs = (req: express.Request, res: express.Response, next: () => void) : void => {
     
     //validate filename is exists and exists in images dir
     const fileName : string = req.query.filename as string;

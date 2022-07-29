@@ -10,5 +10,8 @@ var port = 3000;
 app.listen(port, function () {
     console.log("server running at http://localhost:".concat(port));
 });
+app.get('/', function (req, res) {
+    res.send('Server is running');
+});
 app.use("/api", index_1.default);
 exports.default = app;

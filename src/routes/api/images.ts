@@ -1,7 +1,7 @@
 import express from 'express';
 import path from 'path';
 import resize from '../../resize';
-import { existsSync } from 'fs';
+import fs from 'fs';
 
 const images = express.Router();
 
@@ -11,8 +11,21 @@ images.get('/images', (req: express.Request, res: express.Response) => {
     const width : number  = parseInt(req.query.width as string);
     try {
 
+        if( !fs.existsSync('./assets/thumb') ) {
+            try {
+                fs.mkdir('./assets/thumb', (err) => {
+                    if(err) {
+                        return console.error(err);
+                    }
+                    console.log('Directory created successfully');
+                });
+            } catch (error) {
+                return 'Error while creating directory';                
+            }
+        }
+
         const imgPath = path.resolve('./assets/thumb')+`/${fileName}_${width}_${height}.jpg`;
-        if(existsSync(imgPath) === true) {
+        if(fs.existsSync(imgPath) === true) {
             res.status(200).sendFile(imgPath);
             return;
         }

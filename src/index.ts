@@ -8,6 +8,10 @@ app.listen(port, () => {
   console.log(`server running at http://localhost:${port}`);
 });
 
+app.get('/', (req, res) => {
+  res.send('Server is running');
+});
+
 app.use("/api" ,routes);
 
 export default app;
