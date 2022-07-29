@@ -13,5 +13,5 @@ app.listen(port, function () {
 app.get('/', function (req, res) {
     res.send('Server is running');
 });
-app.use("/api", index_1.default);
+app.use('/api', index_1.default);
 exports.default = app;

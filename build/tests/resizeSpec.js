@@ -40,8 +40,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var resize_1 = __importDefault(require("../resize"));
-describe("send a valid filename and height and path to resize()", function () {
-    it("expect resizedImgPath ./assets/thumb/fjord_400_300.jpg", function () { return __awaiter(void 0, void 0, void 0, function () {
+describe('send a valid filename and height and path to resize()', function () {
+    it('expect resizedImgPath ./assets/thumb/fjord_400_300.jpg', function () { return __awaiter(void 0, void 0, void 0, function () {
         var response, reizedImgPath;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -55,8 +55,8 @@ describe("send a valid filename and height and path to resize()", function () {
         });
     }); });
 });
-describe("send a wrong file name to resize()", function () {
-    it("expect internal server error", function () { return __awaiter(void 0, void 0, void 0, function () {
+describe('send a wrong file name to resize()', function () {
+    it('expect internal server error', function () { return __awaiter(void 0, void 0, void 0, function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {

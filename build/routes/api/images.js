@@ -26,15 +26,18 @@ images.get('/images', function (req, res) {
                 return 'Error while creating directory';
             }
         }
-        var imgPath = path_1.default.resolve('./assets/thumb') + "/".concat(fileName, "_").concat(width, "_").concat(height, ".jpg");
+        var imgPath = path_1.default.resolve('./assets/thumb') +
+            "/".concat(fileName, "_").concat(width, "_").concat(height, ".jpg");
         if (fs_1.default.existsSync(imgPath) === true) {
             res.status(200).sendFile(imgPath);
             return;
         }
-        (0, resize_1.default)(fileName, width, height).then(function (reizedImgPath) {
+        (0, resize_1.default)(fileName, width, height)
+            .then(function (reizedImgPath) {
             res.status(200).sendFile(path_1.default.resolve(reizedImgPath));
             return;
-        }).catch(function (err) {
+        })
+            .catch(function (err) {
             res.status(500).send("internal server error: ".concat(err));
             return;
         });

@@ -1,17 +1,17 @@
-import express from "express";
-import routes from "./routes/index";
+import express from 'express';
+import routes from './routes/index';
 
 const app = express();
 const port = 3000;
 
 app.listen(port, () => {
-  console.log(`server running at http://localhost:${port}`);
+    console.log(`server running at http://localhost:${port}`);
 });
 
 app.get('/', (req, res) => {
-  res.send('Server is running');
+    res.send('Server is running');
 });
 
-app.use("/api" ,routes);
+app.use('/api', routes);
 
 export default app;
