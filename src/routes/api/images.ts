@@ -5,7 +5,7 @@ import fs from 'fs';
 
 const images = express.Router();
 
-images.get('/images', (req: express.Request, res: express.Response) => {
+images.get('/images', (req: express.Request, res: express.Response) : unknown => {
     const fileName: string = req.query.filename as string;
     const height: number = parseInt(req.query.height as string);
     const width: number = parseInt(req.query.width as string);
@@ -14,7 +14,7 @@ images.get('/images', (req: express.Request, res: express.Response) => {
             try {
                 fs.mkdir('./assets/thumb', (err) => {
                     if (err) {
-                        return console.error(err);
+                        return 'Error while creating directory';
                     }
                     console.log('Directory created successfully');
                 });

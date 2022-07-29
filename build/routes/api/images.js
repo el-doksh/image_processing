@@ -17,7 +17,7 @@ images.get('/images', function (req, res) {
             try {
                 fs_1.default.mkdir('./assets/thumb', function (err) {
                     if (err) {
-                        return console.error(err);
+                        return 'Error while creating directory';
                     }
                     console.log('Directory created successfully');
                 });

@@ -1,7 +1,7 @@
 import sharp from 'sharp';
 import path from 'path';
 
-const resize = async (fileName: string, width: number, height: number) => {
+const resize = async (fileName: string, width: number, height: number) : Promise<string>  => {
     try {
         const imgPath: string =
             path.resolve('./assets/full') + `/${fileName}.jpg`;
