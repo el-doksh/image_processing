@@ -8,7 +8,7 @@ Install & running server
 
 An api to resize images endpoint is :
 
-http://localhost:3000/api/images?filename=pyramids&height=500&width=500
+http://localhost:3000/api/images?filename=santamonica&height=500&width=600
 
 query parameters are:
 
