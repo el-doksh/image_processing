@@ -1,6 +1,6 @@
 import express from 'express';
 import images from './api/images';
-import logger from '../utilities/logger';
+import validateImagesInputs from '../utilities/validateImagesInputs';
 
 const routes = express.Router();
 
@@ -8,6 +8,6 @@ routes.get('/', (req, res) => {
     res.send('Server running');
 });
 
-routes.get('/images', logger, images);
+routes.get('/images', validateImagesInputs, images);
 
 export default routes;
