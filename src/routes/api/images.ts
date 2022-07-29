@@ -1,5 +1,4 @@
 import express from 'express';
-import { promises as fsPromises } from 'fs';
 import path from 'path';
 import resize from '../../resize';
 import { existsSync } from 'fs';
